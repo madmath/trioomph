@@ -1,0 +1,4 @@
+./manage.py schemamigration appname --initial
+./manage.py migrate appname
+
+after that you can do --auto
