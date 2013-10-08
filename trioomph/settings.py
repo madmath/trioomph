@@ -1,4 +1,5 @@
 # Django settings for trioomph project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,6 +10,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+SETTINGS_DIRNAME = os.path.dirname(__file__)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -65,13 +67,11 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = '/static/trioomph/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(SETTINGS_DIRNAME, "files").replace('\\','/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -99,7 +99,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'trioomph.urls'
@@ -107,11 +107,7 @@ ROOT_URLCONF = 'trioomph.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'trioomph.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+TEMPLATE_DIRS = os.path.join(SETTINGS_DIRNAME, "templates").replace('\\','/')
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -126,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'mentors',
     'south',
+    'registration',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -138,15 +135,14 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
     'handlers': {
+        'console': {
+                'level':'DEBUG',
+                'class':'logging.StreamHandler',
+                'formatter': 'simple'
+            },
         'mail_admins': {
             'level': 'ERROR',
-            'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         }
     },
@@ -156,5 +152,14 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        'general': {
+            'handlers': ['console'],
+            'level': 'DEBUG'
+        }
+    },
+    'formatters' : {
+      'simple': {
+                  'format': '%(levelname)s %(message)s'
+              },
     }
 }

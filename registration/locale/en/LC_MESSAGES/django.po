@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-28 14:45-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:23
+msgid "Activate users"
+msgstr ""
+
+#: admin.py:43
+msgid "Re-send activation emails"
+msgstr ""
+
+#: forms.py:35
+msgid "Username"
+msgstr ""
+
+#: forms.py:36
+msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+msgstr ""
+
+#: forms.py:39
+msgid "E-mail"
+msgstr ""
+
+#: forms.py:41
+msgid "Password"
+msgstr ""
+
+#: forms.py:43
+msgid "Password (again)"
+msgstr ""
+
+#: forms.py:53
+msgid "A user with that username already exists."
+msgstr ""
+
+#: forms.py:67
+msgid "The two password fields didn't match."
+msgstr ""
+
+#: forms.py:78
+msgid "I have read and agree to the Terms of Service"
+msgstr ""
+
+#: forms.py:79
+msgid "You must agree to the terms to register"
+msgstr ""
+
+#: forms.py:95
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+
+#: forms.py:122
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+
+#: models.py:176
+msgid "user"
+msgstr ""
+
+#: models.py:177
+msgid "activation key"
+msgstr ""
+
+#: models.py:182
+msgid "registration profile"
+msgstr ""
+
+#: models.py:183
+msgid "registration profiles"
+msgstr ""
+
+#: templates/registration/activate.html:8
+msgid "Account successfully activated"
+msgstr ""
+
+#: templates/registration/activate.html:10
+#: templates/registration/auth_password_reset_complete.html:8
+#: templates/registration/login.html:8
+msgid "Log in"
+msgstr ""
+
+#: templates/registration/activate.html:14
+msgid "Account activation failed"
+msgstr ""
+
+#: templates/registration/activation_complete.html:5
+msgid "You are now activated."
+msgstr ""
+
+#: templates/registration/activation_email.txt:2
+msgid "Activate account at"
+msgstr ""
+
+#: templates/registration/activation_email.txt:6
+#, python-format
+msgid "Link is valid for %(expiration_days)s days."
+msgstr ""
+
+#: templates/registration/activation_email_subject.txt:1
+msgid "Account activation on"
+msgstr ""
+
+#: templates/registration/auth_password_change_done.html:5
+msgid "Password changed"
+msgstr ""
+
+#: templates/registration/auth_password_change_form.html:9
+#: templates/registration/auth_password_reset_confirm.html:12
+#: templates/registration/auth_password_reset_form.html:9
+#: templates/registration/registration_form.html:9
+msgid "Submit"
+msgstr ""
+
+#: templates/registration/auth_password_reset_complete.html:6
+msgid "Password reset successfully"
+msgstr ""
+
+#: templates/registration/auth_password_reset_confirm.html:17
+msgid "Password reset failed"
+msgstr ""
+
+#: templates/registration/auth_password_reset_done.html:5
+msgid "Email with password reset instructions has been sent."
+msgstr ""
+
+#: templates/registration/login.html:12
+msgid "Forgotten your password?"
+msgstr ""
+
+#: templates/registration/login.html:13
+msgid "Not a member"
+msgstr ""
+
+#: templates/registration/login.html:13
+msgid "Register"
+msgstr ""
+
+#: templates/registration/logout.html:5
+msgid "Logged out"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:2
+#, python-format
+msgid "Reset password at %(site_name)s"
+msgstr ""
+
+#: templates/registration/registration_complete.html:5
+msgid "You are now registered. Activation email sent."
+msgstr ""

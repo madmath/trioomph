@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Trioomph - {{profile.user.first_name}}{% endblock %}
+{% block content %}
+<h3>{{profile.user.first_name}}</h3>
+<li>{% trans "There are no videos in this package!"%}</li>
+{% endblock %}

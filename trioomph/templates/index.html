@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Trioomph{% endblock %}
+
+<!-- Content -->
+{% block content %}
+{% if user.is_authenticated %}
+  {% include "mentors/dashboard.html"%}
+{% else %}
+  {% include "welcome.html"%}
+{% endif %}
+{% endblock %}

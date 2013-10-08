@@ -1,0 +1,11 @@
+#header {
+  height: 100px;
+}
+
+.thumb img {
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  max-height: 225px;
+}
