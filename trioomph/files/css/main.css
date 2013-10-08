@@ -9,3 +9,19 @@
   -webkit-margin-end: 0px;
   max-height: 225px;
 }
+
+.red {
+  background: red;
+}
+
+.blue {
+  background: blue;
+}
+
+.mentor_thumb {
+  height: 8em;
+}
+
+.mentor_name {
+  font-size: large;
+}

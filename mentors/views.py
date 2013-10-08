@@ -16,5 +16,5 @@ def mentor(request, mentor_id):
 def index(request):
   data = {}
   all_profiles = MentorProfile.objects.all()
-  data.update({'avail_profiles':all_profiles})
-  return render_to_response('index.html', data)
+  data.update({'avail_profiles':all_profiles, 'user': request.user})
+  return render_to_response('mentors/index.html', data)

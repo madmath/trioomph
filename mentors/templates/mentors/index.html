@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %}Trioomph{% endblock %}
-
+{% block title %}Available Mentors - Trioomph{% endblock %}
 <!-- Content -->
 {% block content %}
 {% if user.is_authenticated %}
-  {% include "mentors/dashboard.html"%}
+  {% include "mentors/list.html"%}
 {% else %}
   {% include "welcome.html"%}
 {% endif %}
