@@ -1,8 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 {% block title %}Trioomph - {{profile.user.first_name}}{% endblock %}
 {% block header %}{% endblock %}
 {% block content %}
-<h1>{{profile.user.first_name}} {{profile.user.last_name}}</h1>
+<div id='header'>
+  <h1>{{profile.user.first_name}} {{profile.user.last_name}}</h1>
+</div>
+<div id='top_section'>
+  <div class='row'>
+    <div class='col-md-1'>&nbsp;</div>
+    <div class='col-md-3' id='thumbnail_section'>
+      <div id='thumbnail_box'>
+        <img src='{% get_media_prefix %}{{profile.thumbnail}}' />
+      </div>
+    </div>
+    <div class='col-md-1'>&nbsp;</div>
+    <div class='col-md-6' id='mentor_info'>
+      <div class="panel panel-default">
+        <div id='biography' class="panel-heading">
+          <h3 class="panel-title">Biography</h3>
+        </div>
+        <div class="panel-body">
+          {{ profile.bio }}
+        </div>
+      </div>
+      <div id='oneliner' class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">A sentence about me</h3>
+        </div>
+        <div class="panel-body">
+          {{ profile.oneliner }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

@@ -1,5 +1,19 @@
 #header {
+  padding-top: 2em;
   height: 100px;
+}
+
+#top_section {
+  height: 300px;
+}
+
+#thumbnail_section {
+  padding: 20px 20px 20px 20px;
+}
+
+#thumbnail_box img {
+  width: 275px;
+  height: 205px;
 }
 
 .thumb img {
