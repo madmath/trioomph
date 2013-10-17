@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
 
 from mentors.models import Conference, QuestionAnswer, MentorProfile, VideoLink
 
@@ -28,5 +30,31 @@ class MentorProfileAdmin(admin.ModelAdmin):
         return qs
     return qs.filter(user=request.user)
 
+
+
 admin.site.register(MentorProfile, MentorProfileAdmin)
-#admin.site.register(QuestionAnswer)
+
+class MentorProfileInline(admin.TabularInline):
+  extra = 1
+  max_num = 1
+  model = MentorProfile
+  fk_name = 'user'
+
+class UserAdmin(UserAdmin):
+  inlines = [
+      MentorProfileInline,
+  ]
+  fieldsets = (
+    (None, {
+      'fields': ('username', 'password', 'first_name', 'last_name', 'email', 'groups', 'is_staff')
+      }),
+  )
+
+  def queryset(self, request):
+    qs = super(UserAdmin, self).queryset(request)
+    if request.user.is_superuser:
+        return qs
+    return qs.filter(id=request.user.pk)
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
