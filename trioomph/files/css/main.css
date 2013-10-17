@@ -1,22 +1,23 @@
-#header {
-  padding-top: 2em;
-  height: 100px;
+#thumbnail-section {
+  padding: 0px 20px 0px 20px;
+  text-align: center ;
 }
 
-#top_section {
-  height: 300px;
+#question-button {
+  margin-top: 3em;
 }
 
-#thumbnail_section {
-  padding: 20px 20px 20px 20px;
+#thumbnail-section img {
+  width: 100%;
+  margin: auto;
 }
 
-#thumbnail_box img {
-  width: 275px;
-  height: 205px;
+#mentor-name {
+  margin-bottom: 1em;
 }
 
-.thumb img {
+img.thumb {
+  width: 100%;
   -webkit-margin-before: 1em;
   -webkit-margin-after: 1em;
   -webkit-margin-start: 0px;
@@ -24,18 +25,71 @@
   max-height: 225px;
 }
 
-.red {
-  background: red;
-}
-
-.blue {
-  background: blue;
-}
-
-.mentor_thumb {
-  height: 8em;
+.video-thumb img {
+  width: 100%;
 }
 
 .mentor_name {
   font-size: large;
+}
+
+.conference div {
+  font-size: large;
+}
+
+#info-conference {
+  margin-top: 1em;
+  width: 80%;
+}
+
+.question div {
+  font-size: large;
+}
+
+.youtube-header {
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+
+.youtube-title {
+  font-weight: bold;
+}
+.youtube-description {
+  margin-top: 1em;
+  color: gray;
+  margin-left: 20px;
+}
+
+.youtube-description:before {
+    display: block;
+    font-size: 700%;
+    content: "\201C";
+    height: 1px;
+    margin-left: -0.5em;
+    position:relative;
+    top:-20px;
+}
+/* Polaroid */
+
+.polaroid {
+  position: relative;
+  width: 100%;
+  border: 1px solid #d3d3d3;
+}
+
+.polaroid img {
+  border: 10px solid #fff;
+  border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+}
+
+.polaroid p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0px;
+  font: 400 20px/1 'Kaushan Script', cursive;
+  color: #888;
 }

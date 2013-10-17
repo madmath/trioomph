@@ -1,10 +1,9 @@
-{% load static %}
-{% for mentor in avail_profiles %}
-  <div class='mentor_thumb span10'>
-    <div class='col-md-2'><img class='thumb' src='{% get_media_prefix %}{{mentor.thumbnail}}' /></div>
-    <div class='col-md-7'>
-      <div class='mentor_name'><a href='{% url 'mentor' mentor.pk %}'>{{mentor.user.first_name}} {{mentor.user.last_name}}</a></div>
-      <div class='mentor_oneliner'>{{mentor.oneliner}}</div>
-    </div>
-  </div>
-{% endfor %}
+{% load static %}<div class='mentor_thumb col-md-12'>
+        <div class='row'>
+          <div class='col-md-2'><a href='{% url 'mentor' mentor.pk %}'><img class='thumb' src='{% get_media_prefix %}{{mentor.thumbnail}}' /></a></div>
+          <div class='col-md-7'>
+            <div class='mentor_name'><a href='{% url 'mentor' mentor.pk %}'>{{mentor.user.first_name}} {{mentor.user.last_name}}</a></div>
+            <div class='mentor_oneliner'>{{mentor.oneliner}}</div>
+          </div>
+        </div>
+      </div>

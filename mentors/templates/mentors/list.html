@@ -1,8 +1,2 @@
-{% load i18n %}
-<!-- List of available profiles -->
-<h3>{% trans "Available mentors" %}</h3>
-{% for package in avail_profiles %}
-  {% include "mentors/mentor_thumb.html" %}
-{% empty %}
-  {% trans "No new profiles for the moment. Come back later!"%}
-{% endfor %}
+<!-- List of available profiles -->{% load i18n %}
+    {% for mentor in avail_profiles %}{% include "mentors/mentor_thumb.html" %}{% empty %}{% trans "No new profiles for the moment. Come back later!"%}{% endfor %}

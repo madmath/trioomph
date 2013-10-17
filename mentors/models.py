@@ -9,7 +9,7 @@ class MentorProfile(models.Model):
   thumbnail = models.ImageField(upload_to="thumbs/", blank=True, null=True)
 
   def __unicode__(self):
-    return u"Profile for: " + self.user.first_name
+    return u"%s %s" % (self.user.first_name, self.user.last_name)
 
 class VideoLink(models.Model):
   title = models.CharField(max_length=1000)
@@ -34,4 +34,4 @@ class QuestionAnswer(models.Model):
   question = models.CharField(max_length=5000)
   answer = models.TextField()
   owner_profile = models.ForeignKey(MentorProfile)
-  asker = models.ManyToManyField(User, related_name="question", null=True, blank=True)
+  asker = models.ForeignKey(User)

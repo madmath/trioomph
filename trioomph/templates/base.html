@@ -17,32 +17,23 @@
 <![endif]-->
 <title>{% block title %}{% endblock %}</title>
 <body>
-  {% block add_csrf %}{% endblock %}
-  <div class='container'>
-    {% block header %}
-    <div class='row' id='header'>
-      <div class='col-md-12' style="padding-top:25px">
-        <h1><a href="/">{% trans "Trioomph Mentors" %}</a></h1>
-      </div>
-    </div>
-    {% endblock %}
-    <div class='row'>
-      <!--div class='span3'>
-        {% block left_sidebar %}
-          {% include "sidebar.html" %}
-        {% endblock %}
-        <hr />
-      </div-->
-      <div class='col-md-12'>
-        <!--i class="icon-arrow-left"></i>&nbsp;<a href="#" onclick="window.history.go(-1); return false;">{% trans "Back" %}</a-->
-        {% block content %}{% endblock %}
-      </div>
-    </div>
-
+{% block add_csrf %}{% endblock %}
+<div class='container'>
+{% block header %}
+  <div class='row' id='header'>
+    <div class='col-md-12'>
+    <h1><a href="/">{% trans "Trioomph Mentors" %}</a></h1>
   </div>
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% static 'js/jquery.js' %}"></script>
+</div>
+{% endblock %}
+<div class='row' id='main-section'>
+<!--div class='span3'>{% block left_sidebar %}{% include "sidebar.html" %}{% endblock %}<hr /></div-->
+  {% block content %}{% endblock %}
+</div>
+</div>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'js/jquery.js' %}"></script>
 </body>
 </html>
