@@ -25,6 +25,10 @@ img.thumb {
   max-height: 225px;
 }
 
+.buttons-div {
+  text-align: center;
+}
+
 .video-thumb img {
   width: 100%;
 }
@@ -40,6 +44,10 @@ img.thumb {
 #info-conference {
   margin-top: 1em;
   width: 80%;
+}
+
+.buttons-div {
+  margin-top: 20em;
 }
 
 .question div {

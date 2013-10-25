@@ -129,6 +129,15 @@ INSTALLED_APPS = (
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
+ACCOUNT_ACTIVATION_DAYS = 7
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'tank997@gmail.com'
+EMAIL_HOST_PASSWORD = '4m7a0t4g2'
+DEFAULT_FROM_EMAIL = 'tank997@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+LOGIN_REDIRECT_URL = '/'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

@@ -6,6 +6,7 @@ from registration import signals
 from registration.forms import RegistrationForm
 from registration.models import RegistrationProfile
 
+from mentors.models import StudentProfile, Choices
 
 class DefaultBackend(object):
     """
@@ -44,7 +45,7 @@ class DefaultBackend(object):
     an instance of ``registration.models.RegistrationProfile``. See
     that model and its custom manager for full documentation of its
     fields and supported operations.
-    
+
     """
     def register(self, request, **kwargs):
         """
@@ -71,12 +72,15 @@ class DefaultBackend(object):
 
         """
         username, email, password = kwargs['username'], kwargs['email'], kwargs['password1']
+        school, year, choices = kwargs['school'], kwargs['year'], kwargs['choices']
         if Site._meta.installed:
             site = Site.objects.get_current()
         else:
             site = RequestSite(request)
         new_user = RegistrationProfile.objects.create_inactive_user(username, email,
                                                                     password, site)
+        #TODODODO
+        new_student_profile = StudentProfile.objects.create(user=user, choices=[Chochoices)
         signals.user_registered.send(sender=self.__class__,
                                      user=new_user,
                                      request=request)
@@ -91,7 +95,7 @@ class DefaultBackend(object):
         ``registration.signals.user_activated`` will be sent, with the
         newly activated ``User`` as the keyword argument ``user`` and
         the class of this backend as the sender.
-        
+
         """
         activated = RegistrationProfile.objects.activate_user(activation_key)
         if activated:
@@ -111,14 +115,14 @@ class DefaultBackend(object):
 
         * If ``REGISTRATION_OPEN`` is both specified and set to
           ``False``, registration is not permitted.
-        
+
         """
         return getattr(settings, 'REGISTRATION_OPEN', True)
 
     def get_form_class(self, request):
         """
         Return the default form class used for user registration.
-        
+
         """
         return RegistrationForm
 
@@ -126,7 +130,7 @@ class DefaultBackend(object):
         """
         Return the name of the URL to redirect to after successful
         user registration.
-        
+
         """
         return ('registration_complete', (), {})
 
@@ -134,6 +138,6 @@ class DefaultBackend(object):
         """
         Return the name of the URL to redirect to after successful
         account activation.
-        
+
         """
         return ('registration_activation_complete', (), {})

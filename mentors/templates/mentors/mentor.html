@@ -54,6 +54,7 @@
           </div>
           {% endif %}
         {% empty %}
+          <p>Revenez bientôt pour voir du contenu!</p>
         {% endfor %}
       </div>
     </div>
@@ -74,7 +75,10 @@
               <div class='youtube-title'>{{video.title}}</div>
               <div class='youtube-description'>{{video.description}}</div>
             </div>
+        {% empty %}
+          <div style='margin-left: 15px'>Revenez bientôt pour voir du contenu!</div>
         {% endfor %}
+
         </div>
       </div>
     </div>
@@ -89,6 +93,8 @@
           <div><b>Question: {{ question.question }}</b></div>
           <h5>Question de {{ question.asker.first_name }}</h5>
           <div class='answer'>Réponse: {{ question.answer }}</div>
+        {% empty %}
+        <p>Revenez bientôt pour voir du contenu!</p>
         {% endfor %}
       </div>
     </div>

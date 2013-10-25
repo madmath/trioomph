@@ -35,3 +35,18 @@ class QuestionAnswer(models.Model):
   answer = models.TextField()
   owner_profile = models.ForeignKey(MentorProfile)
   asker = models.ForeignKey(User)
+
+
+# STUDENTS
+
+class Choices(models.Model):
+  description = models.CharField(max_length=300)
+
+  def __unicode__(self):
+    return self.description
+
+class StudentProfile(models.Model):
+  user = models.ForeignKey(User, blank=True, unique=True, verbose_name='user')
+  choices = models.ManyToManyField(Choices)
+  school = models.CharField(max_length=100)
+  year = models.CharField(max_length=25)

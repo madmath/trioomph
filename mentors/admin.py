@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 
-from mentors.models import Conference, QuestionAnswer, MentorProfile, VideoLink
+from mentors.models import Conference, QuestionAnswer, MentorProfile, VideoLink, Choices, StudentProfile
 
 class ConferenceInline(admin.TabularInline):
     model = Conference
@@ -31,8 +31,8 @@ class MentorProfileAdmin(admin.ModelAdmin):
     return qs.filter(user=request.user)
 
 
-
 admin.site.register(MentorProfile, MentorProfileAdmin)
+admin.site.register(Choices)
 
 class MentorProfileInline(admin.TabularInline):
   extra = 1
