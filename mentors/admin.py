@@ -40,9 +40,15 @@ class MentorProfileInline(admin.TabularInline):
   model = MentorProfile
   fk_name = 'user'
 
+class StudentProfileInline(admin.TabularInline):
+  max_num = 1
+  model = StudentProfile
+  fk_name = 'user'
+
 class UserAdmin(UserAdmin):
   inlines = [
       MentorProfileInline,
+      StudentProfileInline
   ]
   fieldsets = (
     (None, {

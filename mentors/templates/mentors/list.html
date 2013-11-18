@@ -1,2 +1,4 @@
 <!-- List of available profiles -->{% load i18n %}
+    <a style='float:right' href='{% url 'auth_logout' %}?next=/'>{% trans "Logout" %}</a>
+    <h1>{% trans "Mentor Profiles" %}</h1>
     {% for mentor in avail_profiles %}{% include "mentors/mentor_thumb.html" %}{% empty %}{% trans "No new profiles for the moment. Come back later!"%}{% endfor %}

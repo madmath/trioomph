@@ -36,6 +36,7 @@
       </div>
     </div>
   </div>
+  {% if profile.conference_set.all %}
   <div class='col-md-12'>
     <div id='conferences' class="panel panel-info">
       <div class="panel-heading">
@@ -53,12 +54,11 @@
             <div class='col-md-4'><button id='info-conference' type="button" class="btn btn-warning"><b>CLIQUE ICI</b></button></div>
           </div>
           {% endif %}
-        {% empty %}
-          <p>Revenez bientôt pour voir du contenu!</p>
         {% endfor %}
       </div>
     </div>
   </div>
+  {% endif %}
   <div class='col-md-12'>
     <div id='videos' class="panel panel-info">
       <div class="panel-heading">

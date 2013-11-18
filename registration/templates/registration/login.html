@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
+<div class="col-md-12 buttons-div">
 <form method="post" action=".">
 {% csrf_token %}
   {{ form.as_p }}
@@ -10,5 +11,6 @@
 </form>
 
 <p><a href="{% url 'auth_password_reset' %}">{% trans "Forgotten your password?" %}</a></p>
-<p>{% trans "Not a member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+<!--<p>{% trans "Not a member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>-->
+</div>
 {% endblock %}
