@@ -52,7 +52,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/var/www/etudiants.trioomph.com/media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -67,12 +67,14 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/trioomph/'
+STATIC_URL = '/site_media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     os.path.join(SETTINGS_DIRNAME, "files").replace('\\','/'),
 )
+
+ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # List of finder classes that know how to find static files in
 # various locations.
