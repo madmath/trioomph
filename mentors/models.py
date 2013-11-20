@@ -32,7 +32,7 @@ class Conference(models.Model):
 
 class QuestionAnswer(models.Model):
   question = models.CharField(max_length=5000)
-  answer = models.TextField()
+  answer = models.TextField(blank=True, null=True)
   owner_profile = models.ForeignKey(MentorProfile)
   asker = models.ForeignKey(User)
 

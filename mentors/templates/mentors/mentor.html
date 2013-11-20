@@ -8,6 +8,7 @@
 {% block content %}
 {% include "mentors/breadcrumb.html" with current='profile'%}
 {% include "mentors/topright.html" %}
+{% if added_question %}<div class="top-alert alert alert-success"><b>{% trans 'Thanks for your question!' %}</b> {% trans 'Check back soon for an answer!' %}</div>{% endif %}
 <div id='top_section'>
   <h1 id='mentor-name'>{{profile.user.first_name}} {{profile.user.last_name}}</h1>
   <div class='row' style='margin-bottom: 2em'>
@@ -16,7 +17,6 @@
         <p>{{profile.user.first_name}}</p>
         <img src='{% get_media_prefix %}{{profile.thumbnail}}' />
       </div>
-      <div id='question-button'><button type="button" class="btn btn-success">Posez une question à {{ profile.user.first_name }}!</button></div>
     </div>
     <div class='col-md-8' id='mentor-info'>
       <div class="panel panel-primary">
@@ -43,16 +43,21 @@
       <div class="panel-heading">
         <h3 class="panel-title">Prochaine conférence en ligne de {{profile.user.first_name}}</h3>
       </div>
-      <div class="panel-body conference">
+      <div class="panel-body">
         {% for conference in profile.conference_set.all %}
           {% if forloop.first %}
           <div class='row'>
             <div class='col-md-8'>
-              <div><b>Quand:</b> {{ conference.date }}</div>
-              <div><b>Sujet:</b> {{conference.title}}</div>
-              <div><b>À noter:</b> La conférence sera disponible en vidéo par la suite</div>
+              <dl class="dl-horizontal">
+                <dt>Quand</dt>
+                <dd>{{ conference.date }}</dd>
+                <dt>Sujet</dt>
+                <dd><b>{{ conference.title }}</b>{% if conference.description %}: {{ conference.description }}{% endif %}</dd>
+                <dt>À noter</dt>
+                <dd>La conférence sera disponible en vidéo par la suite</dd>
+              </dl>
             </div>
-            <div class='col-md-4'><button id='info-conference' type="button" class="btn btn-warning"><b>CLIQUE ICI</b></button></div>
+            <a href="{{conference.link}}"><div class='col-md-4'><button id='info-conference' type="button" class="btn btn-warning"><b>{% trans "CLICK HERE" %}</b></button></div></a>
           </div>
           {% endif %}
         {% endfor %}
@@ -90,7 +95,7 @@
         <h3 class="panel-title">Questions et réponses</h3>
       </div>
       <div class="panel-body question">
-        {% for question in profile.questionanswer_set.all %}
+        {% for question in questions %}
           <div><b>Question: {{ question.question }}</b></div>
           <h5>Question de {{ question.asker.first_name }}</h5>
           <div class='answer'>Réponse: {{ question.answer }}</div>
@@ -100,6 +105,20 @@
       </div>
     </div>
   </div>
+  <div class='col-md-12'>
+    <div id='question-button' class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Posez une question à {{ profile.user.first_name }}!</h3>
+      </div>
+      <div class="panel-body question">
+        <form method='post'>{% csrf_token %}
+        <input type='text' size="100%" name="question" placeholder="{% trans 'Enter your question for ' %}{{profile.user.first_name }}"/>
+        <input type="submit"/>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 {% endblock %}

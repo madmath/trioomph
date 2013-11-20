@@ -1,2 +1,2 @@
 {% load i18n %}
-<span class='top-right'>{% trans "Welcome," %} {{user.first_name }}!  <a href='{% url 'auth_logout' %}?next=/'>{% trans "Logout" %}</a>{% if is_editable %}<br><a style='float:right' href='{% url 'admin:mentors_mentorprofile_change' profile.pk %}'>✎ {% trans "Edit your profile" %}</a>{% endif %}</span>
+<span class='pull-right'>{% trans "Welcome," %} {{user.first_name }}!  <a href='{% url 'auth_logout' %}?next=/'>{% trans "Logout" %}</a>{% if is_editable %}<br><a href='{% url 'admin:mentors_mentorprofile_change' profile.pk %}'>✎ {% trans "Edit your profile" %}</a>{% endif %}</span>
