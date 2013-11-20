@@ -1,5 +1,17 @@
 <!-- List of available profiles -->{% load i18n %}
+    {% load listutil %}
     {% include "mentors/breadcrumb.html" with current='list'%}
     {% include "mentors/topright.html" %}
     <h1>{% trans "Mentor Profiles" %}</h1>
-    {% for mentor in avail_profiles %}{% include "mentors/mentor_thumb.html" %}{% empty %}{% trans "No new profiles for the moment. Come back later!"%}{% endfor %}
+    <div class="row">
+      <div class="col-md-6">
+        {% for mentor in avail_profiles|partition:"2"|last %}
+            {% include "mentors/mentor_thumb.html" %}
+        {% endfor %}
+      </div>
+      <div class="col-md-6">
+        {% for mentor in avail_profiles|partition:"2"|first %}
+            {% include "mentors/mentor_thumb.html" %}
+        {% endfor %}
+      </div>
+    </div>
