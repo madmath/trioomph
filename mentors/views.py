@@ -28,7 +28,6 @@ def mentor(request, mentor_id):
   questions_list = [q for q in questions if q.answer]
   data['questions'] = questions_list
 
-  print data
   return render_to_response('mentors/mentor.html', data)
 
 def index(request):
