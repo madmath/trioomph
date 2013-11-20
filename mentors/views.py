@@ -11,6 +11,9 @@ def mentor(request, mentor_id):
     return redirect('/')
 
   data = {'profile': profile}
+  if profile.user == request.user or request.user.is_superuser:
+    data.update({'is_editable': True})
+
   return render_to_response('mentors/mentor.html', data)
 
 def index(request):

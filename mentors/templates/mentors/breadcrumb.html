@@ -1,0 +1,10 @@
+{% load i18n %}
+<ol class="breadcrumb">
+  {% if current == 'list' %}
+  <li>{% trans "Mentors" %}</li>
+  {% endif %}
+  {% if current == 'profile' %}
+    <li><a href="{% url 'index' %}">{% trans "Mentors" %}</a></li>
+    <li>{{ profile.user.first_name }} {{ profile.user.last_name }}</li>
+  {% endif %}
+</ol>

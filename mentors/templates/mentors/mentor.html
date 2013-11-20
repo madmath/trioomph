@@ -6,7 +6,8 @@
   <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block content %}
-<a style='float:right' href='{% url 'admin:mentors_mentorprofile_change' profile.pk %}'>✎ Edit this profile</a>
+{% include "mentors/breadcrumb.html" with current='profile'%}
+{% include "mentors/topright.html" %}
 <div id='top_section'>
   <h1 id='mentor-name'>{{profile.user.first_name}} {{profile.user.last_name}}</h1>
   <div class='row' style='margin-bottom: 2em'>
