@@ -1,4 +1,3 @@
-{% load i18n %}
 {% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
@@ -25,13 +24,12 @@
   </div>
 {% endblock %}
 <div class='row' id='main-section'>
-<!--div class='span3'>{% block left_sidebar %}{% include "sidebar.html" %}{% endblock %}<hr /></div-->
-  {% block content %}{% endblock %}
+{% block content %}{% endblock %}
 </div>
 </div>
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{% static 'js/jquery.js' %}"></script>
+<!--script src="{% static 'js/jquery.js' %}"></script-->
 </body>
 </html>

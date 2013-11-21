@@ -21,7 +21,7 @@
     <div class='col-md-8' id='mentor-info'>
       <div class="panel panel-primary">
         <div id='biography' class="panel-heading">
-          <h3 class="panel-title">Biographie</h3>
+          <h3 class="panel-title">{% trans 'Biography' %}</h3>
         </div>
         <div class="panel-body">
           {{ profile.bio }}
@@ -29,7 +29,7 @@
       </div>
       <div id='oneliner' class="panel panel-primary">
         <div class="panel-heading">
-          <h3 class="panel-title">Une phrase qui me décrit bien</h3>
+          <h3 class="panel-title">{% trans "What I'm all about" %}</h3>
         </div>
         <div class="panel-body">
           {{ profile.oneliner }}
@@ -41,7 +41,7 @@
   <div class='col-md-12'>
     <div id='conferences' class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">Prochaine conférence en ligne de {{profile.user.first_name}}</h3>
+        <h3 class="panel-title">{% trans 'Next online conference from' %} {{profile.user.first_name}}</h3>
       </div>
       <div class="panel-body">
         {% for conference in profile.conference_set.all %}
@@ -49,12 +49,12 @@
           <div class='row'>
             <div class='col-md-8'>
               <dl class="dl-horizontal">
-                <dt>Quand</dt>
+                <dt>{% trans 'When?' %}</dt>
                 <dd>{{ conference.date }}</dd>
-                <dt>Sujet</dt>
+                <dt>{% trans 'Topic' %}</dt>
                 <dd><b>{{ conference.title }}</b>{% if conference.description %}: {{ conference.description }}{% endif %}</dd>
-                <dt>À noter</dt>
-                <dd>La conférence sera disponible en vidéo par la suite</dd>
+                <dt>{% trans 'Please note' %}</dt>
+                <dd>{% trans 'The conference will be available as a video soon after!' %}</dd>
               </dl>
             </div>
             <a href="{{conference.link}}"><div class='col-md-4'><button id='info-conference' type="button" class="btn btn-warning"><b>{% trans "CLICK HERE" %}</b></button></div></a>
@@ -68,7 +68,7 @@
   <div class='col-md-12'>
     <div id='videos' class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">Vidéos archivées</h3>
+        <h3 class="panel-title">{% trans 'Archived videos' %}</h3>
       </div>
       <div class="panel-body">
         <div class='row'>
@@ -77,12 +77,12 @@
               <a href='http://youtube.com/watch?v={{video.video_id}}'><img src='http://i.ytimg.com/vi/{{ video.video_id }}/0.jpg'/></a>
             </div>
             <div class='col-md-3'>
-              <div class='youtube-header'>Vidéo YouTube</div>
+              <div class='youtube-header'>{% trans 'YouTube video' %}</div>
               <div class='youtube-title'>{{video.title}}</div>
               <div class='youtube-description'>{{video.description}}</div>
             </div>
         {% empty %}
-          <div style='margin-left: 15px'>Revenez bientôt pour voir du contenu!</div>
+          <div style='margin-left: 15px'>{% trans 'Come back soon for some content!' %}</div>
         {% endfor %}
 
         </div>
@@ -92,15 +92,15 @@
   <div class='col-md-12'>
     <div id='questions' class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">Questions et réponses</h3>
+        <h3 class="panel-title">{% trans 'Questions & Answers' %}</h3>
       </div>
       <div class="panel-body question">
         {% for question in questions %}
-          <div><b>Question: {{ question.question }}</b></div>
-          <h5>Question de {{ question.asker.first_name }}</h5>
-          <div class='answer'>Réponse: {{ question.answer }}</div>
+          <div><b>{% trans 'Question:' %} {{ question.question }}</b></div>
+          <h5>{% trans 'Question from' %} {{ question.asker.first_name }}</h5>
+          <div class='answer'>{% trans 'Answer:' %} {{ question.answer }}</div>
         {% empty %}
-        <p>Revenez bientôt pour voir du contenu!</p>
+        <p>{% trans 'Come back soon for some content!' %}</p>
         {% endfor %}
       </div>
     </div>
@@ -108,7 +108,7 @@
   <div class='col-md-12'>
     <div id='question-button' class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="panel-title">Posez une question à {{ profile.user.first_name }}!</h3>
+        <h3 class="panel-title">{% trans 'Send your question to' %} {{ profile.user.first_name }}!</h3>
       </div>
       <div class="panel-body question">
         <form method='post'>{% csrf_token %}

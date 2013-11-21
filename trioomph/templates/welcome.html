@@ -1,11 +1,11 @@
 {% load i18n %}
 <div class="col-md-12 buttons-div">
   <div class='with-account'>
-    <p>{% trans 'Vous avez un compte?' %}</p>
-    <button type="button" onclick='window.location = "{% url 'auth_login' %}"' class="btn btn-primary btn-lg">Connectez-vous!</button>
+    <p>{% trans 'Do you have an account?' %}</p>
+    <button type="button" onclick='window.location = "{% url 'auth_login' %}"' class="btn btn-primary btn-lg">{% trans 'Log in!' %}</button>
   </div>
   <div class='no-account'>
-    <p>Sinon...</p>
-    <button type="button" onclick='window.location = "{% url 'registration_register' %}"' class="btn btn-default btn-lg">Créez-vous un compte!</button>
+    <p>{% trans 'Otherwise...' %}</p>
+    <button type="button" onclick='window.location = "{% url 'registration_register' %}"' class="btn btn-default btn-lg">{% trans 'Create an account!' %}</button>
   </div>
 </div>
