@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 20:09-0500\n"
+"POT-Creation-Date: 2013-11-20 20:30-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,3 +117,19 @@ msgstr "Déconnexion"
 #: templates/mentors/topright.html:2
 msgid "Edit your profile"
 msgstr "Modifiez ce profil"
+
+#: templates/mentors/welcome.html:4
+msgid "Do you have an account?"
+msgstr "As-tu un compte?"
+
+#: templates/mentors/welcome.html:5
+msgid "Log in!"
+msgstr "Connecte toi!"
+
+#: templates/mentors/welcome.html:8
+msgid "Otherwise..."
+msgstr "Sinon..."
+
+#: templates/mentors/welcome.html:9
+msgid "Create an account!"
+msgstr "Crée toi un compte!"

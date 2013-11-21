@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-20 20:14-0500\n"
+"POT-Creation-Date: 2013-11-20 20:29-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,20 +23,4 @@ msgstr ""
 
 #: settings.py:43
 msgid "English"
-msgstr ""
-
-#: templates/welcome.html:4
-msgid "Do you have an account?"
-msgstr ""
-
-#: templates/welcome.html:5
-msgid "Log in!"
-msgstr ""
-
-#: templates/welcome.html:8
-msgid "Otherwise..."
-msgstr ""
-
-#: templates/welcome.html:9
-msgid "Create an account!"
 msgstr ""
