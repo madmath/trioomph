@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render_to_response, redirect
@@ -5,6 +6,7 @@ from django.views.decorators.csrf import csrf_protect
 
 from mentors.models import MentorProfile, QuestionAnswer
 
+@login_required
 def mentor(request, mentor_id):
   try:
     profile = MentorProfile.objects.get(pk=mentor_id)
@@ -12,7 +14,7 @@ def mentor(request, mentor_id):
     print 'Can\'t find mentor profile', mentor_id
     return redirect('/')
 
-  data = {}
+  data = {'user': request.user}
   if request.method == "POST":
     if _AddQuestion(request, profile, request.POST['question']):
       data['added_question'] = True
