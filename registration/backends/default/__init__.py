@@ -88,10 +88,15 @@ class DefaultBackend(object):
 
         new_student_profile = StudentProfile.objects.create(user=new_user, year=year, school=school, student_email=student_email)
         new_student_profile.save()
-        choice1 = Choice(description=goal1)
-        choice2 = Choice(description=goal2)
-        choice3 = Choice(description=goal3)
-        new_student_profile.choices = (choice1, choice2, choice3)
+        choice1 = Choices.objects.create(description=goal1)
+        choice1.save()
+        choice2 = Choices.objects.create(description=goal2)
+        choice2.save()
+        choice3 = Choices.objects.create(description=goal3)
+        choice3.save()
+        new_student_profile.choices.add(choice1)
+        new_student_profile.choices.add(choice2)
+        new_student_profile.choices.add(choice3)
 
         signals.user_registered.send(sender=self.__class__,
                                      user=new_user,

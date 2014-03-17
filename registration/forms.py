@@ -96,6 +96,11 @@ class RegistrationForm(forms.Form):
         if 'student_email' in self.cleaned_data and 'student_email2' in self.cleaned_data:
             if self.cleaned_data['student_email'] != self.cleaned_data['student_email2']:
                 raise forms.ValidationError(_("The two student_email fields didn't match."))
+        if 'goal1' in self.cleaned_data and 'goal1' in self.cleaned_data and 'goal3' in self.cleaned_data:
+            if (self.cleaned_data['goal1'] == self.cleaned_data['goal2'] or
+                self.cleaned_data['goal2'] == self.cleaned_data['goal3'] or
+                self.cleaned_data['goal1'] == self.cleaned_data['goal3']):
+                raise forms.ValidationError(_("Two goals may not be the same."))
         return self.cleaned_data
 
 
