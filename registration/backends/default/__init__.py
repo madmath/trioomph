@@ -72,8 +72,10 @@ class DefaultBackend(object):
 
         """
         username, email, password = kwargs['username'], kwargs['email'], kwargs['password1']
-        school, year, choices = kwargs['school'], kwargs['year'], kwargs['choices']
+        school, year = kwargs['school'], kwargs['year']
+        goal1, goal2, goal3 = kwargs['goal1'], kwargs['goal2'], kwargs['goal3']
         first_name, last_name = kwargs['first_name'], kwargs['last_name']
+        student_email = kwargs['student_email']
         if Site._meta.installed:
             site = Site.objects.get_current()
         else:
@@ -84,9 +86,12 @@ class DefaultBackend(object):
         new_user.last_name = last_name
         new_user.save()
 
-        new_student_profile = StudentProfile.objects.create(user=new_user, year=year, school=school)
+        new_student_profile = StudentProfile.objects.create(user=new_user, year=year, school=school, student_email=student_email)
         new_student_profile.save()
-        new_student_profile.choices = choices
+        choice1 = Choice(description=goal1)
+        choice2 = Choice(description=goal2)
+        choice3 = Choice(description=goal3)
+        new_student_profile.choices = (choice1, choice2, choice3)
 
         signals.user_registered.send(sender=self.__class__,
                                      user=new_user,

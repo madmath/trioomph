@@ -48,5 +48,6 @@ class Choices(models.Model):
 class StudentProfile(models.Model):
   user = models.ForeignKey(User, blank=True, unique=True, verbose_name='user')
   choices = models.ManyToManyField(Choices)
+  student_email = models.CharField(max_length=100)
   school = models.CharField(max_length=100)
   year = models.CharField(max_length=25, blank=True)

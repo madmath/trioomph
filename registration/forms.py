@@ -46,17 +46,26 @@ class RegistrationForm(forms.Form):
     last_name = forms.CharField(label=_("Last Name"))
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
                                                                maxlength=75)),
-                             label=_("E-mail"))
+                             label=_("Parent E-mail"))
     email2 = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
                                                                maxlength=75)),
-                             label=_("E-mail (again)"))
+                             label=_("Parent E-mail (again)"))
+    student_email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
+                                                               maxlength=75)),
+                             label=_("Student E-mail"))
+    student_email2 = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict,
+                                                               maxlength=75)),
+                             label=_("Student E-mail (again)"))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
                                 label=_("Password"))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
                                 label=_("Password (again)"))
     school = forms.CharField(label=_("School"))
     year = forms.ChoiceField(label=_("School year"), choices=SCHOOL_YEARS)
-    choices = forms.ModelMultipleChoiceField(queryset=Choices.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
+    goal1 = forms.CharField(label=_("Goal 1"))
+    goal2 = forms.CharField(label=_("Goal 2"))
+    goal3 = forms.CharField(label=_("Goal 3"))
+    #choices = forms.ModelMultipleChoiceField(queryset=Choices.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
 
     def clean_username(self):
         """
@@ -72,7 +81,7 @@ class RegistrationForm(forms.Form):
 
     def clean(self):
         """
-        Verifiy that the values entered into the two password fields
+        Verify that the values entered into the two password fields
         match. Note that an error here will end up in
         ``non_field_errors()`` because it doesn't apply to a single
         field.
@@ -84,6 +93,9 @@ class RegistrationForm(forms.Form):
         if 'email' in self.cleaned_data and 'email2' in self.cleaned_data:
             if self.cleaned_data['email'] != self.cleaned_data['email2']:
                 raise forms.ValidationError(_("The two email fields didn't match."))
+        if 'student_email' in self.cleaned_data and 'student_email2' in self.cleaned_data:
+            if self.cleaned_data['student_email'] != self.cleaned_data['student_email2']:
+                raise forms.ValidationError(_("The two student_email fields didn't match."))
         return self.cleaned_data
 
 
