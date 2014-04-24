@@ -1,0 +1,8 @@
+#!/usr/local/bin/python
+# Was under home/www/etudiants/bootstrap
+import os, sys
+sys.path.insert(0,'/home/trioomph/trioomphproject/trioomph')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'trioomph.settings'
+os.environ['PYTHON_EGG_CACHE'] = '/home/trioomph/trioomphproject/trioomph/.python-eggs'
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
